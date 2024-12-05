@@ -17,17 +17,25 @@ class AdminController {
 
     public function login()
     {
-        //For Nam gay
-            public static function Login($username, $password, $role){
-                global $conn;
-                $stmt = $conn->prepare("select * from users where username = ? and password = ? and role = ? and");
-                $stmt->bind_param("ss", $username, $password, $role);
-                $stmt->execuusers
-                $result = $stmt->get_result();
-                $stmt->close();
-                $conn->close();
-                return $result->num_rows > 0;
+        $error = ''; 
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $username = $_POST['username'];
+            $password = $_POST['password'];
+
+            $user = $this->userModel->login($username, $password);
+
+            if ($user) {
+                $_SESSION['user_id'] = $user['id'];
+                $_SESSION['username'] = $user['username'];
+                $_SESSION['user_role'] = $user['role'];
+                header('Location: index.php?action=dashboard');
+                exit();
+            } else {
+                $error = "Sai tên đăng nhập hoặc mật khẩu";
             }
+        }
+        include 'views/admin/login.php';
     }
 
     public function index() {
@@ -86,13 +94,9 @@ class AdminController {
     }
 
     public function logout() {
-        //For Nam gay too
-        session_start();
-        session_unset();
         session_destroy();
-        header("Location: /views/admin/login.php");
+        header('Location: index.php');
         exit();
     }
 }
-
 ?>

@@ -23,13 +23,10 @@ class HomeController
 
     public function logout()
     {
-        //For Nam gay
-        session_start();
         session_unset();
         session_destroy();
-        header("Location: /views/admin/login.php");
+        header('Location: index.php?action=login');
         exit();
-
     }
 }
 

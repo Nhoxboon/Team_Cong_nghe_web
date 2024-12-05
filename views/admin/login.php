@@ -13,7 +13,7 @@
                         </div>
                     <?php endif; ?>
 
-                    <form action="/login" method="POST">
+                    <form action="index.php?action=login" method="POST">
                         <div class="mb-3">
                             <label for="username" class="form-label">Tên Đăng Nhập</label>
                             <input type="text" class="form-control" id="username" name="username"
