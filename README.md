@@ -6,3 +6,30 @@
     <ul>Trần Đức Nam</ul>
     <ul>Phạm Văn Dũng</ul>
 </tb>
+
+tlunews/
+├── uploads/
+├── config/
+│ ├── database.php
+├── controllers/
+│ ├── HomeController.php
+│ ├── AdminController.php
+│ └── NewsController.php
+├── models/
+│ ├── User.php
+│ ├── Category.php
+│ └── News.php
+├── views/
+│ ├── home/
+│ │ └── index.php
+│ ├── news/
+│ │ └── detail.php
+│ ├── admin/
+│ │ ├── login.php
+│ │ ├── dashboard.php
+│ │ └── news/
+│ │ ├── index.php
+│ │ ├── add.php
+│ │ └── edit.php
+├── .htaccess
+└── index.php
