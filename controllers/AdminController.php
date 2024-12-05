@@ -1,7 +1,7 @@
 <?php
-include_once '../config/database.php';
-include_once '../models/User.php';
-include_once '../models/News.php';
+include_once 'config/database.php';
+include_once 'models/User.php';
+include_once 'models/News.php';
 //include_once '../controllers/NewsController.php';
 
 class AdminController {
@@ -17,11 +17,33 @@ class AdminController {
 
     public function login()
     {
-        //For Nam gay
+        
+        $error = ''; 
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $username = $_POST['username'];
+            $password = $_POST['password'];
+
+            $user = $this->userModel->login($username, $password);
+
+            if ($user) {
+                $_SESSION['user_id'] = $user['id'];
+                $_SESSION['username'] = $user['username'];
+                $_SESSION['user_role'] = $user['role'];
+                header('Location: ?action=dashboard');
+                exit();
+            } else {
+                $error = "Sai tên đăng nhập hoặc mật khẩu";
+            }
+        }
+        include 'views/admin/login.php';
     }
+
+    public function submitLogin(){}
 
     public function index() {
         //For Dũng béo
+        
     }
 
     public function dashboard() {

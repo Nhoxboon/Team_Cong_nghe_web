@@ -1,9 +1,9 @@
-<?php include '../header.php'; ?>
+<?php include 'views/header.php'; ?>
 
 <div class="row">
     <div class="col-md-8">
         <h2 class="mb-4">Tin Tức Mới Nhất</h2>
-        <?php foreach ($news as $item): ?>
+        <?php foreach ($_SESSION['news'] as $item): ?>
             <div class="card mb-4">
                 <div class="row g-0">
                     <div class="col-md-4">
@@ -13,7 +13,7 @@
                     <div class="col-md-8">
                         <div class="card-body">
                             <h5 class="card-title">
-                                <a href="/news/<?php echo $item['id']; ?>" class="text-decoration-none">
+                                <a href="?action=news&method=detail&id=<?php echo $item['id']; ?>" class="text-decoration-none">
                                     <?php echo htmlspecialchars($item['title']); ?>
                                 </a>
                             </h5>
@@ -36,8 +36,8 @@
                 <h3>Danh Mục</h3>
             </div>
             <div class="list-group list-group-flush">
-                <?php foreach ($categories as $category): ?>
-                    <a href="/category/<?php echo $category['id']; ?>" 
+                <?php foreach ($_SESSION['category'] as $category): ?>
+                    <a href="?action=filter&categoryId=<?php echo $category['id']; ?>" 
                        class="list-group-item list-group-item-action">
                         <?php echo htmlspecialchars($category['name']); ?>
                     </a>
@@ -47,4 +47,4 @@
     </div>
 </div>
 
-<?php include '../footer.php'; ?>
+<?php include 'views/footer.php'; ?>

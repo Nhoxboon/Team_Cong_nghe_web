@@ -10,7 +10,6 @@
     <div class="container py-5">
 
 
-
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card">
@@ -24,7 +23,7 @@
                         </div>
                     <?php endif; ?>
 
-                    <form action="/login" method="POST">
+                    <form method="POST">
                         <div class="mb-3">
                             <label for="username" class="form-label">Tên Đăng Nhập</label>
                             <input type="text" class="form-control" id="username" name="username"
@@ -43,4 +42,4 @@
         </div>
     </div>
 
-<?php include '../footer.php'; ?>
+<?php include 'views/footer.php'; ?>

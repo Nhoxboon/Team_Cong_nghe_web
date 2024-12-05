@@ -20,7 +20,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/">Trang Chủ</a>
                     </li>
-                    <?php foreach ($categories as $category): ?>
+                    <?php foreach ($_SESSION['category'] as $category): ?>
                         <li class="nav-item">
                             <a class="nav-link" href="/category/<?php echo $category['id']; ?>">
                                 <?php echo htmlspecialchars($category['name']); ?>
@@ -51,4 +51,4 @@
         </div>
     </nav>
 </header>
-<main class="container mt-4"><?php
+<main class="container mt-4">
