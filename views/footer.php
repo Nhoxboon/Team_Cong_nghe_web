@@ -11,8 +11,8 @@
             <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
                 <h5 class="text-uppercase">Liên Hệ</h5>
                 <ul class="list-unstyled">
-                    <li>Email: lienhe@tintuc.com</li>
-                    <li>Điện thoại: 0123 456 789</li>
+                    <li>Email: nhom2@tintuc.com</li>
+                    <li>Điện thoại: 0123 456 JQK</li>
                 </ul>
             </div>
         </div>
