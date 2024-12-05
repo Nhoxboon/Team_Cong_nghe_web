@@ -50,7 +50,6 @@ if (isset($_GET['action'])) {
                 } elseif ($method === 'detail' && isset($_GET['id'])) {
                     $id = $_GET['id'];
                     $controller->detail($id);
-                    error_log('dit me php');
                 } else {
                     $controller->index();
                 }
