@@ -1,11 +1,11 @@
-<?php include '../../header.php'; ?>
+<?php include 'views/header.php'; ?>
 
 <div class="card">
     <div class="card-header">
         <h2>Sửa Tin Tức</h2>
     </div>
     <div class="card-body">
-        <form action="/index.php?action=news&method=edit&id=<?php echo $news['id']; ?>" method="POST" enctype="multipart/form-data">
+        <form action="index.php?action=news&method=edit&id=<?php echo $news['id']; ?>" method="POST" enctype="multipart/form-data">
             <div class="mb-3">
                 <label for="title" class="form-label">Tiêu Đề</label>
                 <input type="text" class="form-control" id="title" name="title" 
@@ -47,9 +47,9 @@
             </div>
             
             <button type="submit" class="btn btn-primary">Cập Nhật</button>
-            <a href="/index.php?action=dashboard" class="btn btn-secondary">Hủy</a>
+            <a href="index.php?action=dashboard" class="btn btn-secondary">Hủy</a>
         </form>
     </div>
 </div>
 
-<?php include '../../footer.php'; ?>
+<?php include 'views/footer.php'; ?>
