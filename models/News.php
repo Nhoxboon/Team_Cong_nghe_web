@@ -24,9 +24,8 @@ class News {
     }
 
     public function update($id, $title, $content, $image, $category_id) {
-        $imgURL = "public/" . $image;
         $stmt = $this->pdo->prepare("UPDATE news SET title = ?, content = ?, image = ?, category_id = ? WHERE id = ?");
-        return $stmt->execute([$title, $content, $imgURL, $category_id, $id]);
+        return $stmt->execute([$title, $content, $image, $category_id, $id]);
     }
 
     public function delete($id) {

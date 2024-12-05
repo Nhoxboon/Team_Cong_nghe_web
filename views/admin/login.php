@@ -32,6 +32,7 @@
                             <input type="password" class="form-control" id="password" name="password" required>
                         </div>
                         <button type="submit" class="btn btn-primary">Đăng Nhập</button>
+                        <a href="?action=guest" class="btn btn-secondary">Tôi là khách</a>
                     </form>
                 </div>
             </div>
