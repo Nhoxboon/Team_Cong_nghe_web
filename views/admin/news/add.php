@@ -1,12 +1,12 @@
-<?php include '../../header.php'; ?>
+<?php include 'views/header.php'; ?>
 
 <div class="card">
     <div class="card-header">
         <h2>Thêm Tin Tức Mới</h2>
     </div>
     <div class="card-body">
-        <form action="/index.php?action=news&method=add" method="POST" enctype="multipart/form-data">
-            <div class="mb-3">
+        <form action="index.php?action=news&method=add" method="POST" enctype="multipart/form-data">
+        <div class="mb-3">
                 <label for="title" class="form-label">Tiêu Đề</label>
                 <input type="text" class="form-control" id="title" name="title" required>
             </div>
@@ -34,9 +34,9 @@
             </div>
 
             <button type="submit" class="btn btn-primary">Thêm Tin Tức</button>
-            <a href="/index.php?action=dashboard" class="btn btn-secondary">Hủy</a>
+            <a href="?action=dashboard" class="btn btn-secondary">Hủy</a>
         </form>
     </div>
 </div>
 
-<?php include '../../footer.php'; ?>
+<?php include 'views/footer.php'; ?>

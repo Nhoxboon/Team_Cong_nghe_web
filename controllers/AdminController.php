@@ -2,7 +2,6 @@
 include_once 'config/database.php';
 include_once 'models/User.php';
 include_once 'models/News.php';
-//include_once '../controllers/NewsController.php';
 
 class AdminController {
     private $userModel;
@@ -38,7 +37,6 @@ class AdminController {
     }
 
     public function dashboard() {
-        //For Dũng béo
         $news = $this->newsModel->getAll();
         $_SESSION['category'] = $this->categoryModel->getAll();
         include 'views/admin/dashboard.php';
@@ -46,39 +44,38 @@ class AdminController {
 
     public function addNews() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // Xử lý thêm tin tức
+            error_log("Nigga");
             $title = $_POST['title'];
             $content = $_POST['content'];
             $category_id = $_POST['category_id'];
             $image = $_FILES['image']['name'];
 
-            move_uploaded_file($_FILES['image']['tmp_name'], "../uploads/" . $image);
+            move_uploaded_file($_FILES['image']['tmp_name'], "public/" . $image);
 
             $this->newsModel->add($title, $content, $image, $category_id);
-            header('Location: index.php?action=dashboard');
+            header('Location: ?action=dashboard');
             exit();
         }
         $categories = $this->categoryModel->getAll();
-        include '../views/admin/news/add.php';
+        include 'views/admin/news/add.php';
     }
 
     public function editNews($id) {
         $news = $this->newsModel->getById($id);
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // Xử lý sửa tin tức
             $title = $_POST['title'];
             $content = $_POST['content'];
             $category_id = $_POST['category_id'];
             $image = $_FILES['image']['name'];
 
             if (!empty($image)) {
-                move_uploaded_file($_FILES['image']['tmp_name'], "../uploads/" . $image);
+                move_uploaded_file($_FILES['image']['tmp_name'], "public/" . $image);
             } else {
                 $image = $news['image'];
             }
 
             $this->newsModel->update($id, $title, $content, $image, $category_id);
-            header('Location: index.php?action=dashboard');
+            header('Location: ?action=dashboard');
             exit();
         }
         $categories = $this->categoryModel->getAll();

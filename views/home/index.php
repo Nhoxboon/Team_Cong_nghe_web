@@ -7,7 +7,7 @@
             <div class="card mb-4">
                 <div class="row g-0">
                     <div class="col-md-4">
-                        <img src="/public/images/<?php echo htmlspecialchars($item['image']); ?>" 
+                        <img src="<?php echo htmlspecialchars($item['image']); ?>"
                              class="img-fluid rounded-start" alt="<?php echo htmlspecialchars($item['title']); ?>">
                     </div>
                     <div class="col-md-8">

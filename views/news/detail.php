@@ -12,7 +12,7 @@
             </div>
             
             <?php if ($news['image']): ?>
-                <img src="/public/images/<?php echo htmlspecialchars($news['image']); ?>" 
+                <img src="<?php echo htmlspecialchars($news['image']); ?>"
                      class="img-fluid mb-4" alt="<?php echo htmlspecialchars($news['title']); ?>">
             <?php endif; ?>
             

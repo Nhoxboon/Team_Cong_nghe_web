@@ -28,7 +28,7 @@ class HomeController
 
     public function detail($id) {
         $news = $this->newsModel->getById($id);
-        $category = $this->categoryModel->getById($news['id'])['name'];
+        $category = $this->categoryModel->getById($news['category_id'])['name'];
         include 'views/news/detail.php';
     }
 

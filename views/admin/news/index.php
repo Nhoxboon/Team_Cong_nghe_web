@@ -1,6 +1,6 @@
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h2>Quản Lý Tin Tức</h2>
-    <a href="/index.php?action=news&method=add" class="btn btn-primary">Thêm Tin Tức Mới</a>
+    <a href="index.php?action=news&method=add" class="btn btn-primary">Thêm Tin Tức Mới</a>
 </div>
 
 <div class="card">
@@ -24,9 +24,9 @@
                             <td><?php echo htmlspecialchars($item['category_name']); ?></td>
                             <td><?php echo date('d/m/Y', strtotime($item['created_at'])); ?></td>
                             <td>
-                                <a href="/index.php?action=news&method=edit&id=<?php echo $item['id']; ?>"
+                                <a href="index.php?action=news&method=edit&id=<?php echo $item['id']; ?>"
                                    class="btn btn-sm btn-warning">Sửa</a>
-                                <a href="/index.php?action=news&method=delete&id=<?php echo $item['id']; ?>"
+                                <a href="index.php?action=news&method=delete&id=<?php echo $item['id']; ?>"
                                    class="btn btn-sm btn-danger"
                                    onclick="return confirm('Bạn có chắc muốn xóa tin này?')">Xóa</a>
                             </td>
