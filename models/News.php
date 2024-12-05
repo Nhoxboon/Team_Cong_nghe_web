@@ -30,5 +30,11 @@ class News {
         $stmt = $this->pdo->prepare("DELETE FROM news WHERE id = ?");
         return $stmt->execute([$id]);
     }
+
+    public function getAllByCategoryId($id) {
+        $stmt = $this->pdo->prepare("SELECT * FROM news WHERE category_id = ?");
+        $stmt->execute([$id]);
+        return $stmt->fetchAll();
+    }
 }
 ?>

@@ -1,5 +1,3 @@
-<?php include '../../header.php'; ?>
-
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h2>Quản Lý Tin Tức</h2>
     <a href="/index.php?action=news&method=add" class="btn btn-primary">Thêm Tin Tức Mới</a>
@@ -39,5 +37,3 @@
         </div>
     </div>
 </div>
-
-<?php include '../../footer.php'; ?>

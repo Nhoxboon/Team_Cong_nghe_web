@@ -16,25 +16,10 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">Trang Chủ</a>
-                    </li>
-                    <?php foreach ($categories as $category): ?>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/category/<?php echo $category['id']; ?>">
-                                <?php echo htmlspecialchars($category['name']); ?>
-                            </a>
-                        </li>
-                    <?php endforeach; ?>
-                </ul>
                 <ul class="navbar-nav ms-auto">
                     <?php if (!isset($_SESSION['user'])): ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="/login">Đăng Nhập</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/register">Đăng Ký</a>
+                            <a class="nav-link" href="/register">Đăng Xuất</a>
                         </li>
                     <?php else: ?>
                         <?php if ($_SESSION['user']['role'] == 1): ?>
@@ -51,4 +36,4 @@
         </div>
     </nav>
 </header>
-<main class="container mt-4"><?php
+<main class="container mt-4">

@@ -57,6 +57,10 @@ if (isset($_GET['action'])) {
             case 'logout':
                 $controller->logout();
                 break;
+            case 'filter':
+                $categoryId = $_GET['categoryId'] ?? null;
+                $controller->filter($categoryId);
+                break;
             default:
                 if ($controller instanceof HomeController) {
                     $controller->index();

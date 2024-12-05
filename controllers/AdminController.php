@@ -1,7 +1,7 @@
 <?php
-include_once '../config/database.php';
-include_once '../models/User.php';
-include_once '../models/News.php';
+include_once 'config/database.php';
+include_once 'models/User.php';
+include_once 'models/News.php';
 //include_once '../controllers/NewsController.php';
 
 class AdminController {
@@ -18,7 +18,6 @@ class AdminController {
     public function login()
     {
         $error = ''; 
-
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $username = $_POST['username'];
             $password = $_POST['password'];
@@ -29,7 +28,7 @@ class AdminController {
                 $_SESSION['user_id'] = $user['id'];
                 $_SESSION['username'] = $user['username'];
                 $_SESSION['user_role'] = $user['role'];
-                header('Location: index.php?action=dashboard');
+                header('Location: ?action=dashboard');
                 exit();
             } else {
                 $error = "Sai tên đăng nhập hoặc mật khẩu";
@@ -38,12 +37,11 @@ class AdminController {
         include 'views/admin/login.php';
     }
 
-    public function index() {
-        //For Dũng béo
-    }
-
     public function dashboard() {
         //For Dũng béo
+        $news = $this->newsModel->getAll();
+        $_SESSION['category'] = $this->categoryModel->getAll();
+        include 'views/admin/dashboard.php';
     }
 
     public function addNews() {
@@ -84,7 +82,7 @@ class AdminController {
             exit();
         }
         $categories = $this->categoryModel->getAll();
-        include '../views/admin/news/edit.php';
+        include 'views/admin/news/edit.php';
     }
 
     public function deleteNews($id) {

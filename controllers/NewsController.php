@@ -23,7 +23,7 @@ class NewsController
 
     public function detail($id)
     {
-        //For Dũng béo
+        
     }
 
 }
