@@ -39,7 +39,7 @@ class AdminController {
             move_uploaded_file($_FILES['image']['tmp_name'], "../uploads/" . $image);
 
             $this->newsModel->add($title, $content, $image, $category_id);
-            header('Location: ../public/index.php?action=dashboard');
+            header('Location: index.php?action=dashboard');
             exit();
         }
         $categories = $this->categoryModel->getAll();
@@ -62,7 +62,7 @@ class AdminController {
             }
 
             $this->newsModel->update($id, $title, $content, $image, $category_id);
-            header('Location: ../public/index.php?action=dashboard');
+            header('Location: index.php?action=dashboard');
             exit();
         }
         $categories = $this->categoryModel->getAll();
@@ -71,7 +71,7 @@ class AdminController {
 
     public function deleteNews($id) {
         $this->newsModel->delete($id);
-        header('Location: ../public/index.php?action=dashboard');
+        header('Location: index.php?action=dashboard');
         exit();
     }
 
