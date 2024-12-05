@@ -41,13 +41,13 @@ class AdminController {
 
     public function submitLogin(){}
 
-    public function index() {
-        //For Dũng béo
-        
-    }
+    
 
     public function dashboard() {
         //For Dũng béo
+        $news = $this->newsModel->getAll();
+        $_SESSION['category'] = $this->categoryModel->getAll();
+        include 'views/admin/dashboard.php';
     }
 
     public function addNews() {
@@ -88,7 +88,7 @@ class AdminController {
             exit();
         }
         $categories = $this->categoryModel->getAll();
-        include '../views/admin/news/edit.php';
+        include 'views/admin/news/edit.php';
     }
 
     public function deleteNews($id) {

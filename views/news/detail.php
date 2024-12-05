@@ -7,7 +7,7 @@
             <div class="mb-3">
                 <small class="text-muted">
                     Đăng ngày: <?php echo date('d/m/Y', strtotime($news['created_at'])); ?>
-                    | Danh mục: <?php echo htmlspecialchars($category['name']); ?>
+                    | Danh mục: <?php echo htmlspecialchars($category); ?>
                 </small>
             </div>
             
