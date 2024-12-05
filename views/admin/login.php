@@ -31,15 +31,8 @@
                             <label for="password" class="form-label">Mật Khẩu</label>
                             <input type="password" class="form-control" id="password" name="password" required>
                         </div>
-                        <div class="mb-3 form-check">
-                            <input type="checkbox" class="form-check-input" id="remember" name="remember">
-                            <label class="form-check-label" for="remember">Ghi Nhớ Đăng Nhập</label>
-                        </div>
                         <button type="submit" class="btn btn-primary">Đăng Nhập</button>
                     </form>
-                    <div class="mt-3">
-                        <p>Chưa có tài khoản? <a href="/register">Đăng Ký Ngay</a></p>
-                    </div>
                 </div>
             </div>
         </div>
