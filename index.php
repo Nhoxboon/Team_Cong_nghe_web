@@ -7,6 +7,11 @@ require_once 'controllers/HomeController.php';
 $controller = null;
 
 if (!isset($_SESSION['user_id'])) {
+    if (isset($_GET['action']) && $_GET['action'] === 'guest') {
+        $controller = new HomeController();
+        $controller->index();
+        exit();
+    }
     $controller = new AdminController();
     $controller->login();
     exit();

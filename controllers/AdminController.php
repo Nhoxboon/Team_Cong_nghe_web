@@ -68,13 +68,13 @@ class AdminController {
             $category_id = $_POST['category_id'];
             $image = $_FILES['image']['name'];
 
-            if (!empty($image)) {
+            if (!empty($image) && $_FILES['image']['error'] == UPLOAD_ERR_OK) {
                 move_uploaded_file($_FILES['image']['tmp_name'], "public/" . $image);
+                $imgURL = "public/" . $image;
             } else {
-                $image = $news['image'];
+                $imgURL = $news['image'];
             }
-
-            $this->newsModel->update($id, $title, $content, $image, $category_id);
+            $this->newsModel->update($id, $title, $content, $imgURL, $category_id);
             header('Location: ?action=dashboard');
             exit();
         }
