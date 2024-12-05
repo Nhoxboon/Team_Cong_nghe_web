@@ -41,8 +41,10 @@ class HomeController
 
     public function logout()
     {
-        //For Nam gay
-
+        session_unset();
+        session_destroy();
+        header('Location: index.php?action=login');
+        exit();
     }
 }
 
