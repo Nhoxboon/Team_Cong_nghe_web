@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đăng Nhập - Hệ Thống Quản Trị</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body class="bg-light">
-    <div class="container py-5">
-
-
+<?php include '../header.php'; ?>
 
     <div class="row justify-content-center">
         <div class="col-md-6">
@@ -24,7 +13,7 @@
                         </div>
                     <?php endif; ?>
 
-                    <form action="/login" method="POST">
+                    <form action="index.php?action=login" method="POST">
                         <div class="mb-3">
                             <label for="username" class="form-label">Tên Đăng Nhập</label>
                             <input type="text" class="form-control" id="username" name="username"
@@ -34,10 +23,15 @@
                             <label for="password" class="form-label">Mật Khẩu</label>
                             <input type="password" class="form-control" id="password" name="password" required>
                         </div>
-                        
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="remember" name="remember">
+                            <label class="form-check-label" for="remember">Ghi Nhớ Đăng Nhập</label>
+                        </div>
                         <button type="submit" class="btn btn-primary">Đăng Nhập</button>
                     </form>
-                    
+                    <div class="mt-3">
+                        <p>Chưa có tài khoản? <a href="/register">Đăng Ký Ngay</a></p>
+                    </div>
                 </div>
             </div>
         </div>

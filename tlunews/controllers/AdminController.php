@@ -17,25 +17,17 @@ class AdminController {
 
     public function login()
     {
-        $error = ''; 
-
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $username = $_POST['username'];
-            $password = $_POST['password'];
-
-            $user = $this->userModel->login($username, $password);
-
-            if ($user) {
-                $_SESSION['user_id'] = $user['id'];
-                $_SESSION['username'] = $user['username'];
-                $_SESSION['user_role'] = $user['role'];
-                header('Location: index.php?action=dashboard');
-                exit();
-            } else {
-                $error = "Sai tên đăng nhập hoặc mật khẩu";
+        //For Nam gay
+            public static function Login($username, $password, $role){
+                global $conn;
+                $stmt = $conn->prepare("select * from users where username = ? and password = ? and role = ? and");
+                $stmt->bind_param("ss", $username, $password, $role);
+                $stmt->execuusers
+                $result = $stmt->get_result();
+                $stmt->close();
+                $conn->close();
+                return $result->num_rows > 0;
             }
-        }
-        include 'views/admin/login.php';
     }
 
     public function index() {
@@ -57,7 +49,7 @@ class AdminController {
             move_uploaded_file($_FILES['image']['tmp_name'], "../uploads/" . $image);
 
             $this->newsModel->add($title, $content, $image, $category_id);
-            header('Location: index.php?action=dashboard');
+            header('Location: ../public/index.php?action=dashboard');
             exit();
         }
         $categories = $this->categoryModel->getAll();
@@ -80,7 +72,7 @@ class AdminController {
             }
 
             $this->newsModel->update($id, $title, $content, $image, $category_id);
-            header('Location: index.php?action=dashboard');
+            header('Location: ../public/index.php?action=dashboard');
             exit();
         }
         $categories = $this->categoryModel->getAll();
@@ -89,14 +81,18 @@ class AdminController {
 
     public function deleteNews($id) {
         $this->newsModel->delete($id);
-        header('Location: index.php?action=dashboard');
+        header('Location: ../public/index.php?action=dashboard');
         exit();
     }
 
     public function logout() {
+        //For Nam gay too
+        session_start();
+        session_unset();
         session_destroy();
-        header('Location: index.php');
+        header("Location: /views/admin/login.php");
         exit();
     }
 }
+
 ?>

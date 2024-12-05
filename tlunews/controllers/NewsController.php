@@ -1,33 +1,31 @@
 <?php
 include_once '../config/database.php';
 include_once '../models/News.php';
+include_once '../models/Category.php';
 
-class HomeController
+class NewsController
 {
     private $newsModel;
+    private $categoryModel;
 
     public function __construct()
     {
         $database = new Database();
         $this->newsModel = new News($database->pdo);
+        $this->categoryModel = new Category($database->pdo);
     }
 
-    public function index()
+    public function getAllNews()
     {
         //For Dũng béo
     }
 
-    public function detail($id) {
+
+    public function detail($id)
+    {
         //For Dũng béo
     }
 
-    public function logout()
-    {
-        session_unset();
-        session_destroy();
-        header('Location: index.php?action=login');
-        exit();
-    }
 }
 
 ?>
