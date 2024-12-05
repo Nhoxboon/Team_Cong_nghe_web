@@ -5,7 +5,7 @@
         <h2>Sửa Tin Tức</h2>
     </div>
     <div class="card-body">
-        <form action="/admin/news/edit/<?php echo $news['id']; ?>" method="POST" enctype="multipart/form-data">
+        <form action="/index.php?action=news&method=edit&id=<?php echo $news['id']; ?>" method="POST" enctype="multipart/form-data">
             <div class="mb-3">
                 <label for="title" class="form-label">Tiêu Đề</label>
                 <input type="text" class="form-control" id="title" name="title" 
@@ -17,8 +17,7 @@
                 <select class="form-select" id="category_id" name="category_id" required>
                     <option value="">Chọn danh mục</option>
                     <?php foreach ($categories as $category): ?>
-                        <option value="<?php echo $category['id']; ?>" 
-                                <?php echo ($category['id'] == $news['category_id']) ? 'selected' : ''; ?>>
+                        <option value="<?php echo $category['id']; ?>"<?php echo $category['id'] == $news['category_id'] ? 'selected' : ''; ?>>
                             <?php echo htmlspecialchars($category['name']); ?>
                         </option>
                     <?php endforeach; ?>
@@ -48,7 +47,7 @@
             </div>
             
             <button type="submit" class="btn btn-primary">Cập Nhật</button>
-            <a href="/admin/news" class="btn btn-secondary">Hủy</a>
+            <a href="/index.php?action=dashboard" class="btn btn-secondary">Hủy</a>
         </form>
     </div>
 </div>

@@ -5,7 +5,7 @@
         <h2>Thêm Tin Tức Mới</h2>
     </div>
     <div class="card-body">
-        <form action="/admin/news/add" method="POST" enctype="multipart/form-data">
+        <form action="/index.php?action=news&method=add" method="POST" enctype="multipart/form-data">
             <div class="mb-3">
                 <label for="title" class="form-label">Tiêu Đề</label>
                 <input type="text" class="form-control" id="title" name="title" required>
@@ -32,9 +32,9 @@
                 <label for="image" class="form-label">Hình Ảnh</label>
                 <input type="file" class="form-control" id="image" name="image">
             </div>
-            
+
             <button type="submit" class="btn btn-primary">Thêm Tin Tức</button>
-            <a href="/admin/news" class="btn btn-secondary">Hủy</a>
+            <a href="/index.php?action=dashboard" class="btn btn-secondary">Hủy</a>
         </form>
     </div>
 </div>
