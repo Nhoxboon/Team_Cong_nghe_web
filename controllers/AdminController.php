@@ -27,8 +27,8 @@ class AdminController {
                 $_SESSION['user_id'] = $user['id'];
                 $_SESSION['username'] = $user['username'];
                 $_SESSION['user_role'] = $user['role'];
-//                header('Location: ?action=dashboard');
-//                exit();
+                header('Location: ?action=dashboard');
+                exit();
             } else {
                 $error = "Sai tên đăng nhập hoặc mật khẩu";
             }
@@ -50,7 +50,7 @@ class AdminController {
             $category_id = $_POST['category_id'];
             $image = $_FILES['image']['name'];
 
-            move_uploaded_file($_FILES['image']['tmp_name'], "../uploads/" . $image);
+            move_uploaded_file($_FILES['image']['tmp_name'], "public/" . $image);
 
             $this->newsModel->add($title, $content, $image, $category_id);
             header('Location: ?action=dashboard');
@@ -69,7 +69,7 @@ class AdminController {
             $image = $_FILES['image']['name'];
 
             if (!empty($image)) {
-                move_uploaded_file($_FILES['image']['tmp_name'], "../uploads/" . $image);
+                move_uploaded_file($_FILES['image']['tmp_name'], "public/" . $image);
             } else {
                 $image = $news['image'];
             }

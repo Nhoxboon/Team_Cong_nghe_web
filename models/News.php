@@ -17,13 +17,16 @@ class News {
     }
 
     public function add($title, $content, $image, $category_id) {
+        $imgURL = "public/" . $image;
         $stmt = $this->pdo->prepare("INSERT INTO news (title, content, image, category_id) VALUES (?, ?, ?, ?)");
-        return $stmt->execute([$title, $content, $image, $category_id]);
+        return $stmt->execute([$title, $content, $imgURL, $category_id]);
+
     }
 
     public function update($id, $title, $content, $image, $category_id) {
+        $imgURL = "public/" . $image;
         $stmt = $this->pdo->prepare("UPDATE news SET title = ?, content = ?, image = ?, category_id = ? WHERE id = ?");
-        return $stmt->execute([$title, $content, $image, $category_id, $id]);
+        return $stmt->execute([$title, $content, $imgURL, $category_id, $id]);
     }
 
     public function delete($id) {

@@ -35,7 +35,7 @@
                 <div class="mb-3">
                     <label class="form-label">Hình Ảnh Hiện Tại</label>
                     <div>
-                        <img src="/public/images/<?php echo htmlspecialchars($news['image']); ?>" 
+                        <img src="<?php echo htmlspecialchars($news['image']); ?>"
                              alt="Current image" style="max-width: 200px;">
                     </div>
                 </div>
