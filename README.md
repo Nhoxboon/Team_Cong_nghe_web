@@ -7,6 +7,7 @@
     <ul>Phạm Văn Dũng (Task 3)</ul>
 </tb>
 
+<p>
 tlunews/
 ├── uploads/
 ├── config/
@@ -33,3 +34,4 @@ tlunews/
 │ │ └── edit.php
 ├── .htaccess
 └── index.php
+</p>
