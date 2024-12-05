@@ -19,7 +19,7 @@
                 <ul class="navbar-nav ms-auto">
                     <?php if (!isset($_SESSION['user'])): ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="/register">Đăng Xuất</a>
+                            <a class="nav-link" href="?action=logout">Đăng Xuất</a>
                         </li>
                     <?php else: ?>
                         <?php if ($_SESSION['user']['role'] == 1): ?>
@@ -27,9 +27,9 @@
                                 <a class="nav-link" href="/admin">Trang Quản Trị</a>
                             </li>
                         <?php endif; ?>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/logout">Đăng Xuất</a>
-                        </li>
+                        <!-- <li class="nav-item">
+                            <a class="nav-link" href="/?action=logout">Đăng Xuất</a>
+                        </li> -->
                     <?php endif; ?>
                 </ul>
             </div>
