@@ -17,19 +17,14 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <?php if (!isset($_SESSION['user'])): ?>
+                    <?php if (isset($_SESSION['user_role'])): ?>
                         <li class="nav-item">
                             <a class="nav-link" href="?action=logout">Đăng Xuất</a>
                         </li>
                     <?php else: ?>
-                        <?php if ($_SESSION['user']['role'] == 1): ?>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/admin">Trang Quản Trị</a>
-                            </li>
-                        <?php endif; ?>
-                        <!-- <li class="nav-item">
-                            <a class="nav-link" href="/?action=logout">Đăng Xuất</a>
-                        </li> -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="?action=logout">Đăng Nhập</a>
+                        </li>
                     <?php endif; ?>
                 </ul>
             </div>
