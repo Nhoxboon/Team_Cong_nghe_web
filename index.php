@@ -5,7 +5,6 @@ require_once 'controllers/AdminController.php';
 require_once 'controllers/HomeController.php';
 
 $controller = null;
-
 if (!isset($_SESSION['user_id'])) {
     if (isset($_GET['action']) && $_GET['action'] === 'guest') {
         $controller = new HomeController();
@@ -69,7 +68,7 @@ if (isset($_GET['action'])) {
                 $controller->filter($categoryId);
                 break;
             case 'search':
-                $keyword = $_GET['keyword'] ?? null;
+                $keyword = htmlspecialchars($_GET['keyword'],ENT_QUOTES, 'UTF-8');
                 $controller->search($keyword);
                 break;
             default:

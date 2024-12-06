@@ -40,9 +40,13 @@ class HomeController
     }
 
     public function search($keyword){
-        unset($_SESSION['news']);
-        $newsList = $this->newsModel->getByTitleOrContent($keyword);
-        $_SESSION['news'] = $newsList;
+        $output = str_replace("+", " ", $keyword);
+        error_log($output);
+        unset($_SESSION["news"]);
+        $searchKeyword = "%".$output."%";
+        $cleanedString = preg_replace('/\s+/', ' ', trim($searchKeyword));
+        $newsList = $this->newsModel->getByTitleOrContent($cleanedString);
+        $_SESSION["news"] = $newsList;
         include 'views/home/index.php';
     }
 
