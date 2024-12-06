@@ -12,9 +12,11 @@ if (!isset($_SESSION['user_id'])) {
         $controller->index();
         exit();
     }
-    $controller = new AdminController();
-    $controller->login();
-    exit();
+    elseif (isset($_GET['action']) && $_GET['action'] === 'login') {
+        $controller = new AdminController();
+        $controller->login();
+        exit();
+    }
 }
 
 if (isset($_SESSION['user_role'])) {
@@ -65,6 +67,10 @@ if (isset($_GET['action'])) {
             case 'filter':
                 $categoryId = $_GET['categoryId'] ?? null;
                 $controller->filter($categoryId);
+                break;
+            case 'search':
+                $keyword = $_GET['keyword'] ?? null;
+                $controller->search($keyword);
                 break;
             default:
                 if ($controller instanceof HomeController) {

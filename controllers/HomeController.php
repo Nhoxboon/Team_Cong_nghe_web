@@ -39,6 +39,13 @@ class HomeController
         include 'views/home/index.php';
     }
 
+    public function search($keyword){
+        unset($_SESSION['news']);
+        $newsList = $this->newsModel->getByTitleOrContent($keyword);
+        $_SESSION['news'] = $newsList;
+        include 'views/home/index.php';
+    }
+
     public function logout()
     {
         session_unset();

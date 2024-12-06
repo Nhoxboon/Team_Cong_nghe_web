@@ -16,6 +16,12 @@ class News {
         return $stmt->fetch();
     }
 
+    public function getByTitleOrContent($keyword) {
+        $stmt = $this->pdo->prepare("SELECT * FROM news WHERE title LIKE ? OR content LIKE ?");
+        $stmt->execute([$keyword]);
+        return $stmt->fetch();
+    }
+
     public function add($title, $content, $image, $category_id) {
         $imgURL = "public/" . $image;
         $stmt = $this->pdo->prepare("INSERT INTO news (title, content, image, category_id) VALUES (?, ?, ?, ?)");
