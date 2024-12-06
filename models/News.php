@@ -18,8 +18,8 @@ class News {
 
     public function getByTitleOrContent($keyword) {
         $stmt = $this->pdo->prepare("SELECT * FROM news WHERE title LIKE ? OR content LIKE ?");
-        $stmt->execute([$keyword]);
-        return $stmt->fetch();
+        $stmt->execute([$keyword, $keyword]);
+        return $stmt->fetchAll();
     }
 
     public function add($title, $content, $image, $category_id) {

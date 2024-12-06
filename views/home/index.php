@@ -5,8 +5,11 @@
         <div class="d-flex justify-content-between">
             <h2 class="mb-4 mt-auto">Tin Tức Mới Nhất</h2>
             <div class="d-flex  mt-4 mb-4">
-    <input type="text" class="form-control form-control-sm" placeholder="Tìm kiếm...">
-    <button class="btn btn-sm bi bi-search btn-success"></button>
+    <form action="" method="GET">
+        <input type="hidden" name="action" value="search">
+        <input type="text" class="form-control form-control-sm" name="keyword" placeholder="Tìm kiếm...">
+        <button class="btn btn-sm bi bi-search btn-success"></button>
+    </form>
 </div>
         </div>
         <?php foreach ($_SESSION['news'] as $item): ?>
