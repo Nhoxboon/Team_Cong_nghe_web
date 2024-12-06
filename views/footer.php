@@ -6,6 +6,7 @@
                 <h5 class="text-uppercase">Về Chúng Tôi</h5>
                 <p>
                     Trang tin tức cung cấp thông tin mới nhất và chính xác nhất.
+                    Tin Chuẩn không anh?
                 </p>
             </div>
             <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
